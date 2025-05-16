@@ -99,7 +99,6 @@ namespace FP2_Hidden_Palace_Mod
             Harmony.CreateAndPatchAll(typeof(FPCheckpointPatcher));
             Harmony.CreateAndPatchAll(typeof(FPPlayerPatcher));
             Harmony.CreateAndPatchAll(typeof(FPWaterSurfacePatcher));
-            Harmony.CreateAndPatchAll(typeof(PipeTunnelPatcher));
             Harmony.CreateAndPatchAll(typeof(PlantBlockPatcher));
             Harmony.CreateAndPatchAll(typeof(MergaBlueMoonPatcher));
             Harmony.CreateAndPatchAll(typeof(StageModifications));
