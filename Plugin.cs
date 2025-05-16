@@ -12,7 +12,7 @@ using System.IO;
 
 namespace FP2_Hidden_Palace_Mod
 {
-    [BepInPlugin("K24_FP2_HiddenPalace", "Hidden Palace Zone", "0.0.1")]
+    [BepInPlugin("K24_FP2_HiddenPalace", "Hidden Palace Zone", "1.0.1")]
     [BepInDependency("000.kuborro.libraries.fp2.fp2lib")]
     public class Plugin : BaseUnityPlugin
     {

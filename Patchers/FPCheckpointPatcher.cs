@@ -9,6 +9,10 @@
         [HarmonyPatch(typeof(FPCheckpoint), "Start")]
         private static void ActivateStarpostOnReload(FPCheckpoint __instance)
         {
+            // Check that this checkpoint actually has a child object before continuing.
+            if (__instance.transform.childCount == 0)
+                return;
+
             // Get this checkpoint's child object.
             Transform starpost = __instance.transform.GetChild(0);
 
@@ -26,6 +30,10 @@
         [HarmonyPatch(typeof(FPCheckpoint), "Set_Checkpoint")]
         private static void ActivateStarpost(FPCheckpoint __instance)
         {
+            // Check that this checkpoint actually has a child object before continuing.
+            if (__instance.transform.childCount == 0)
+                return;
+
             // Get this checkpoint's child object.
             Transform starpost = __instance.transform.GetChild(0);
 
@@ -49,6 +57,10 @@
         [HarmonyPatch(typeof(FPCheckpoint), "Update")]
         private static void ActivateEarlierStarposts(FPCheckpoint __instance)
         {
+            // Check that this checkpoint actually has a child object before continuing.
+            if (__instance.transform.childCount == 0)
+                return;
+
             // Get this checkpoint's child object.
             Transform starpost = __instance.transform.GetChild(0);
 
