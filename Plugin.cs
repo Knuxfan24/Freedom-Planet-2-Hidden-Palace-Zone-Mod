@@ -12,8 +12,9 @@ using System.IO;
 
 namespace FP2_Hidden_Palace_Mod
 {
-    [BepInPlugin("K24_FP2_HiddenPalace", "Hidden Palace Zone", "1.0.1")]
+    [BepInPlugin("K24_FP2_HiddenPalace", "Hidden Palace Zone", "1.0.2")]
     [BepInDependency("000.kuborro.libraries.fp2.fp2lib")]
+    [BepInDependency("K24_FP2_CustomObjects")]
     public class Plugin : BaseUnityPlugin
     {
         // The asset and scene bundles exported from the Unity project.

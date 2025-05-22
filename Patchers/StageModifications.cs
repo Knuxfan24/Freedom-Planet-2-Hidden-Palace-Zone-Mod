@@ -1,4 +1,6 @@
-﻿using FP2_Hidden_Palace_Mod.CustomObjectScripts;
+﻿using FP2_Knux_Objects;
+using FP2_Knux_Objects.Common;
+using FP2_Knux_Objects.HiddenPalaceZone;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +29,15 @@ namespace FP2_Hidden_Palace_Mod.Patchers
 
                     // Create and attach the monitor script to this monitor's object.
                     ItemMonitor monitorScript = monitor.AddComponent<ItemMonitor>();
+                    monitorScript.assetBundle = Plugin.hpzAssetBundle;
+                    monitorScript.ringSound = "classic_ring";
+                    monitorScript.hyperRingSound = "mania_hyperring";
+                    monitorScript.woodShieldSound = "classic_shield";
+                    monitorScript.earthShieldSound = "classic_shield_thunder";
+                    monitorScript.waterShieldSound = "classic_shield_bubble";
+                    monitorScript.fireShieldSound = "classic_shield_fire";
+                    monitorScript.metalShieldSound = "classic_shield_metal";
+                    monitorScript.hitSound = "classic_pop";
 
                     // Determine the type of monitor to place.
                     switch (name)
@@ -192,6 +203,7 @@ namespace FP2_Hidden_Palace_Mod.Patchers
             foreach (GameObject valve in valveObjects)
             {
                 HPZPipeValve script = valve.AddComponent<HPZPipeValve>();
+                script.assetBundle = Plugin.hpzAssetBundle;
                 script.activationMode = FPActivationMode.ALWAYS_ACTIVE;
             }
         }
@@ -214,9 +226,9 @@ namespace FP2_Hidden_Palace_Mod.Patchers
                     {
                         switch (zoomTube.name)
                         {
-                            case "ZoomTubePoint": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
-                            case "ZoomTubePoint (1)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Right; break;
-                            case "ZoomTubePoint (2)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
+                            case "ZoomTubePoint": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ZoomTubeExitDirection.Up; break;
+                            case "ZoomTubePoint (1)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Right; break;
+                            case "ZoomTubePoint (2)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Up; break;
                         }
                     }
                     break;
@@ -226,12 +238,12 @@ namespace FP2_Hidden_Palace_Mod.Patchers
                     {
                         switch (zoomTube.name)
                         {
-                            case "ZoomTubePoint": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
-                            case "ZoomTubePoint (1)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
-                            case "ZoomTubePoint (2)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Right; break;
-                            case "ZoomTubePoint (3)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
-                            case "ZoomTubePoint (4)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Up; break;
-                            case "ZoomTubePoint (5)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = ExitDirection.Right; break;
+                            case "ZoomTubePoint": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Up; zoomTube.GetComponent<ZoomTubePoint>().BlacklistedAnimations = ["Spring"]; break;
+                            case "ZoomTubePoint (1)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Up; break;
+                            case "ZoomTubePoint (2)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Right; break;
+                            case "ZoomTubePoint (3)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Up; break;
+                            case "ZoomTubePoint (4)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Up; break;
+                            case "ZoomTubePoint (5)": zoomTube.AddComponent<ZoomTubePoint>().exitDirection = FP2_Knux_Objects.ZoomTubeExitDirection.Right; break;
                         }
                     }
                     break;
